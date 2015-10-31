@@ -1,5 +1,9 @@
 --[[
-
+ @name        PacProxy
+ @author      LewisTehMinerz
+ @description PacProxy is a ComputerCraft proxy API to use IP's instead of ID's.
+ @isAPI       Yes
+ @requires    Nothing
 ]]--
 local IP = "0.0.0.0"
 local ID = os.getComputerID()
