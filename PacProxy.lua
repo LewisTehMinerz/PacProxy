@@ -17,7 +17,7 @@ function open( side )
  rednet.open( side )
 end
 function send( iptosend, message )
- rednet.send( iptosend, { "IPAddress" = IP, "Message" = message }, "PacProxy" )
+ rednet.send( iptosend, { ["IPAddress"] = IP, ["Message"] = message }, "PacProxy" )
 end
 function recieve()
  local _, Msg = rednet.receive( "PacProxy" )
