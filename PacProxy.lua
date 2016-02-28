@@ -10,6 +10,9 @@ local ID = os.getComputerID()
 function os.getComputerID()
  return IP, ID
 end
+function os.getComputerIP()
+ return IP
+end
 function setComputerIP( newIP )
  IP = newIP
 end
@@ -21,9 +24,10 @@ function send( iptosend, message )
 end
 function recieve()
  local _, Msg = rednet.receive( "PacProxy" )
- os.queueEvent( "PacProxy_Message", Msg )
+ os.queueEvent( "pacproxy_message_raw", Msg )
  MsgDecode = textutils.unserialise( Msg )
  IPAddress = MsgDecode[ "IPAddress" ]
  Message = MsgDecode[ "Message" ]
+ os.queueEvent( "pacproxy_message", IPAddress, Message )
  return IPAddress, Message
 end
